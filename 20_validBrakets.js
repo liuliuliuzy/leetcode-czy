@@ -6,7 +6,6 @@ var isValid = function(s) {
     if(s.length == 0) return true
     var stack = new Array()
     var dict = {
-
         '{': '}',
         '[': ']',
         '(': ')'
