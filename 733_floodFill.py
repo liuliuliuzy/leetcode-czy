@@ -1,7 +1,7 @@
 from typing import List
 import queue
 class Solution:
-    # DFS, 递归就能非常简单地完成矩阵的深度优先搜索
+    # DFS, 通过递归就能非常简单地完成矩阵的深度优先搜索
     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
         def dfs(i, j, originColor):
             if 0<=i<len(image) and 0<=j<len(image[0]) and image[i][j]==originColor:
@@ -16,6 +16,7 @@ class Solution:
         
         return image
     
+    # BFS，使用队列完成
     def floodFillBfs(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
         if image[sr][sc]!=newColor:
             q = queue.Queue()
