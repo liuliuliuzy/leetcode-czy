@@ -1,3 +1,9 @@
 {
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "files.associations": {
+        "iostream": "cpp",
+        "cstring": "cpp",
+        "vector": "cpp",
+        "iterator": "cpp"
+    }
 }
