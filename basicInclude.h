@@ -2,9 +2,14 @@
 #include <cstdlib>
 #include <algorithm>
 #include <string>
-#include <vector>
 #include <iostream>
 #include <cmath>
+//常用的数据结构
+#include <vector>
+#include <stack>
+#include <queue>
+#include <set>
+#include <unordered_set>
 
 using namespace std;
 

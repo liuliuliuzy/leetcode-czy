@@ -6,6 +6,7 @@
         "vector": "cpp",
         "iterator": "cpp",
         "algorithm": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "unordered_set": "cpp"
     }
 }
