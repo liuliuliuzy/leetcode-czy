@@ -1,3 +1,13 @@
 {
-    "python.pythonPath": "C:\\Users\\liuzy\\Anaconda3\\python.exe"
+    "python.pythonPath": "C:\\Users\\liuzy\\Anaconda3\\python.exe",
+    "python.linting.enabled": false,
+    "files.associations": {
+        "iostream": "cpp",
+        "cstring": "cpp",
+        "vector": "cpp",
+        "iterator": "cpp",
+        "algorithm": "cpp",
+        "cmath": "cpp",
+        "unordered_set": "cpp"
+    }
 }
