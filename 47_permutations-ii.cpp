@@ -1,7 +1,5 @@
 #include "basicInclude.h"
 
-using namespace std;
-
 //definition of solution class
 //backtrack
 class Solution {
