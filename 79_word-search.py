@@ -11,10 +11,11 @@ class Solution:
                 if board[i][j] != word[p]:
                     continue
                 # 执行回溯算法
+                for t in range
                 for disI, disJ in [(1,1), (1,-1), (-1,1), (-1,-1)]:
                     p += 1
                     if i+disI >= 0 and i+disI < n and j+disJ >= 0 and j+disJ < n and board[i][j] == word[p]:
-                        
+
 
         return False
 
