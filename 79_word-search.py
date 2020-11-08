@@ -21,7 +21,7 @@ class Solution:
 
 if __name__ == "__main__":
     board =[
-        ['A','B','C','E'],
+        ['A','B','C','E'],s
         ['S','F','C','S'],
         ['A','D','E','E']
     ]
