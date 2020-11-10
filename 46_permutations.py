@@ -7,6 +7,7 @@ class Solution:
         #将当前索引作为回溯递归函数的参数
         def recursive(index):
             if index == n:
+                # nums的深拷贝
                 ans.append(nums[:])
             for i in range(index, n):
                 nums[index], nums[i] = nums[i], nums[index]
