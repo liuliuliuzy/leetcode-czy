@@ -4,18 +4,17 @@ class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         '''
         回溯算法
+
+        如何用回溯算法来完成 . 和 * 的正则表达式匹配？
         '''
-        n1 = len(s)
-        n2 = len(p)
-        def backtrack(pStart: int, sStart: int):
-            if pStart == n2 and sStart = n1:
-                return True
-            result = False
-            # if (p[pStart] != '*' or p[pStart] != '.') and (pStart < n2-1 and p[pStart+1] != '*')
-            # 可以匹配0个或多个字符
-            
-            # 只能匹配一个字符
-            if pStart < n2-1 and p[pStart+1] != '*':
-                if p[pStart] == '.':
-                    if backtrack(pStart+1, sStart+1):
-                        return True
+        if not p: return not s
+        # 第一个字母是否匹配
+        first_match = bool(s and p[0] in {s[0],'.'})
+        # 如果 p 第二个字母是 *
+        if len(p) >= 2 and p[1] == "*":
+            return self.isMatch(s, p[2:]) or \
+            first_match and self.isMatch(s[1:], p)
+        else:
+            return first_match and self.isMatch(s[1:], p[1:])
+
+        
