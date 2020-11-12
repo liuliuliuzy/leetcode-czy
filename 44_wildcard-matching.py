@@ -65,9 +65,55 @@ class Solution2:
         backtrack(0, 0)
         return result
 
+class Solution3:
+    def isMatch(self, s: str, p: str) -> bool:
+        '''
+        动态规划
+        '''
+        n1 = len(s)
+        n2 = len(p)
+        dp = [[False for j in range(n2 + 1)] for i in range(n1 + 1)]
+        dp[0][0] = True
+        for i in range(n2):
+            if p[i] != '*':
+                break
+            dp[0][i+1] = True
+
+        for i in range(n1):
+            for j in range(n2):
+                if p[j] == '?' or s[i] == p[j]:
+                    dp[i+1][j+1] = dp[i][j]
+                elif p[j] == '*':
+                    dp[i+1][j+1] = dp[i][j+1] | dp[i][j+1]
+                    # 就因为这里的下标写错了一直没看出来，导致我提交错误了3次🤬...
+                else:
+                    continue
+
+        return dp[n1][n2]
+
+    def isMatch2(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+
+        dp = [[False] * (n + 1) for _ in range(m + 1)]
+        dp[0][0] = True
+        for i in range(1, n + 1):
+            if p[i - 1] == '*':
+                dp[0][i] = True
+            else:
+                break
+        print(dp)
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if p[j - 1] == '*':
+                    dp[i][j] = dp[i][j - 1] | dp[i - 1][j]
+                elif p[j - 1] == '?' or s[i - 1] == p[j - 1]:
+                    dp[i][j] = dp[i - 1][j - 1]
+        print(dp)
+        return dp[m][n]
+
 if __name__ == "__main__":
-    s = "aaabbbaabaaaaababaabaaabbabbbbbbbbaabababbabbbaaaaba"
-    p = "a*******b"
-    S = Solution2()
+    s = "abceb"
+    p = "a*b"
+    S = Solution3()
     print(S.isMatch(s, p))
     
