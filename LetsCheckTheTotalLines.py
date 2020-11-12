@@ -7,6 +7,7 @@ totalFiles = 0
 files = os.listdir('.')
 
 for file in files:
+    totalFiles += 1
     if file.startswith('.'):
         continue
     totalLines += len(open(file, 'r', encoding='UTF-8').readlines())
