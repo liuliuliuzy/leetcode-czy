@@ -54,6 +54,7 @@ public:
 class SolutionBetter {
     /*
     归并排序，其实将两个排好序的链表合并是容易做到的事，所以从顶向下归并排序，只需要确定start\end\mid指针即可
+    而确定指针的方法就是，两个从头开始向后运动的指针，一个移动的速度是另一个的两倍(处理链表问题的一种思维方式)
     */
 public:
     ListNode* sortList(ListNode* head) {
