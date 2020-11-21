@@ -10,9 +10,9 @@ filesTypes = defaultdict(int)
 
 
 for file in files:
-    totalFiles += 1
     if file.startswith('.'):
         continue
+    totalFiles += 1
     totalLines += len(open(file, 'r', encoding='UTF-8').readlines())
     filesTypes[os.path.splitext(file)[1]] += 1
     
