@@ -25,6 +25,7 @@ class Solution:
             # res = max(res + tasks[i][0], tasks[i][1])
             # print(res)
         return res
+    
 
 
 if __name__ == "__main__":
