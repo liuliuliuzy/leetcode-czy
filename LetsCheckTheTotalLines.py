@@ -8,6 +8,8 @@ totalFiles = 0
 files = os.listdir('.')
 filesTypes = defaultdict(int)
 
+colors = ["\033[{}m".format(i) for i in range(31, 38)]
+endColor = "\033[0m"
 
 for file in files:
     if file.startswith('.'):
@@ -23,5 +25,12 @@ print(
 Total Lines Count: {}
 Total files Count: {}
 in {:.2}s
-==============================='''
-    .format(totalLines-13, totalFiles-3, end-start))
+As for the file types:'''.format(totalLines-13, totalFiles-3, end-start))
+
+startColorIndex = 0
+for key, value in filesTypes.items():
+    if startColorIndex > len(colors)-1: startColorIndex = 0
+    print(colors[startColorIndex] + "{:6}: ".format(key) + "+"*max(int((value/totalFiles)//0.01), 1)+ " {:.2%}".format(value/totalFiles) + endColor)
+    startColorIndex += 1
+
+print("===============================")
