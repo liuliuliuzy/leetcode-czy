@@ -22,8 +22,8 @@ end = time.time()
 print(
 '''Look Hooooow many lines of codes have you wrote
 ===============================
-Total Lines Count: {}
-Total files Count: {}
+Total Lines Count: \033[36m{}\033[0m
+Total files Count: \033[35m{}\033[0m
 in {:.2}s
 As for the file types:'''.format(totalLines-13, totalFiles-3, end-start))
 
