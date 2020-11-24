@@ -24,7 +24,7 @@ print(
 ===============================
 Total Lines Count: \033[36m{}\033[0m
 Total files Count: \033[35m{}\033[0m
-in {:.2}s
+in {:.3}s
 As for the file types:'''.format(totalLines-13, totalFiles-3, end-start))
 
 startColorIndex = 0
