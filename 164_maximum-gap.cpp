@@ -30,46 +30,65 @@ public:
             }
         }
     }
-    void quickSort(vector<int> &nums, int start, int end){
-        int sentinel = nums[start];
-        int i = start+1, j = end;
-        while (i < j)
-        {
-            while (i < j && nums[i] <= sentinel)
-            {
+    int partition(vector<int> &nums, int start, int end){
+        /*
+        这么看来，选取数组中间的值作为pivot是最合适的，而且实现也比较简单易懂
+        */
+        int pivotIndex = start + (end - start) / 2;
+        int pivotValue = nums[pivotIndex];
+        int i = start, j = end;
+        int temp;
+        while(i <= j) {
+            // 这里pivotValue是在初始的i的左边，所以不需要担心i的索引越界问题
+            while(nums[i] < pivotValue) {
                 i++;
             }
-            while (j > i && nums[j] >= sentinel)
-            {
+            while(nums[j] > pivotValue) {
                 j--;
             }
-            int tmp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = tmp;
-            
+            if(i <= j) {
+                temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                i++;
+                j--;
+            }
         }
-        int tmp = nums[j];
-        nums[j] = nums[start];
-        nums[start] = tmp;
-        quickSort(nums, start, j-1);
-        quickSort(nums, j+1, end);
-        
+        return i;
+    }
+    void quickSort(vector<int> &nums, int start, int end){
+        if(start < end)
+        {
+            int j = partition(nums, start, end);
+            quickSort(nums, start, j-1);
+            quickSort(nums, j, end);
+        } 
     }
     int maximumGapII(vector<int> &nums){
-        return 0;
+        if(nums.size() < 2) return 0;
+        quickSort(nums, 0, nums.size()-1);
+        int res = nums[1] - nums[0];
+        for(int i=2; i<nums.size(); i++)
+        {
+            if(nums[i] - nums[i-1] > res)
+            {
+                res = nums[i] - nums[i-1];
+            }
+        }
+        return res;
     }
 };
 
 int main()
 {
-    vector<int> testNums = {2,3,5,1,8};
+    vector<int> testNums = {9,8,7,6,5,4,3,2,1};
     Solution s;
-    // cout<<s.maximumGap(testNums)<<endl;
-    s.quickSort(testNums, 0, (int)testNums.size());
-    for(auto item: testNums)
-    {
-        cout<<item<<" ";
-    }
-    cout<<endl;
+    cout<<s.maximumGapII(testNums)<<endl;
+    // s.quickSort(testNums, 0, (int)testNums.size()-1);
+    // for(auto item: testNums)
+    // {
+    //     cout<<item<<" ";
+    // }
+    // cout<<endl;
     return 0;
 }
