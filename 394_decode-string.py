@@ -34,8 +34,6 @@ class Solution:
             i += 1
         return st2[0]
 
-
-        return res
 if __name__ == "__main__":
     s = Solution()
     encodedString = "dff"
