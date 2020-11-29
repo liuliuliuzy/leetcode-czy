@@ -1,7 +1,7 @@
 from typing import List
 import random
 import time
-
+import zyRandom
 # 最容易理解的思路：前缀和
 class Solution:
     def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
@@ -82,11 +82,12 @@ class Solution:
         return newSums
 
 if __name__ == "__main__":
-    testNums = []
-    random.seed(time.time())
-    for i in range(10):
-        testNums.append(random.randrange(-10, 10))
-    testNums = [-2, 5, -1]
+    # testNums = []
+    # random.seed(time.time())
+    # for i in range(10):
+    #     testNums.append(random.randrange(-10, 10))
+    # testNums = [-2, 5, -1]
+    testNums = zyRandom.createRandList(-10, 10, 10)
     lower = -2
     upper = 2
     s = Solution()
