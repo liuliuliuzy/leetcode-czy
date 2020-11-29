@@ -4,7 +4,8 @@ class Solution:
     def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
         '''
         贪心算法
-        超时gg
+        复杂度应该是O(nk)
+        超时gg /(ㄒoㄒ)/~~
         '''
         if k == len(nums):
             return nums
@@ -29,11 +30,26 @@ class Solution:
     
     def mostCompetitiveII(self, nums: List[int], k: int) -> List[int]:
         '''
-        DP?
+        DP? no no no
+        单调栈
         '''
+        monoStack = [nums[0]]
+        for i in range(1, len(nums)):
+            # 还有选择的余地
+            if len(nums) - i > k - len(monoStack):
+                while monoStack and monoStack[-1] > nums[i] and len(nums) - i > k - len(monoStack):
+                    monoStack.pop()
+                if len(monoStack) < k:
+                    monoStack.append(nums[i])
+            # 没有选择的余地了
+            else:
+                monoStack.extend(nums[i:])
+                break
         
+        return monoStack
+
 
 if __name__ == "__main__":
     s = Solution()
-    nums = [3,5,2,6,1,3,4,2]
-    print(s.mostCompetitive(nums, 2))
+    nums = [3,5,2,6,1,3,4,5]
+    print(s.mostCompetitiveII(nums, 1))
