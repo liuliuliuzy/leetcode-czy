@@ -1,5 +1,7 @@
 import collections
 import heapq
+import zyRandom
+
 class Solution:
     def reorganizeString(self, S: str) -> str:
         '''
@@ -51,6 +53,7 @@ class Solution2:
         
         queue = [(-x[1], x[0]) for x in counts.items()]
         heapq.heapify(queue)
+        print(queue)
         ans = list()
 
         while len(queue) > 1:
@@ -66,11 +69,12 @@ class Solution2:
         
         if queue:
             ans.append(queue[0][1])
-        
+        print(ans)    
+    
         return "".join(ans)
 
 if __name__ == "__main__":
-    s = Solution()
+    s = Solution2()
     S = "rehrtwfwvsdfeqe"
     # X = "bdcdwdfdedsdsdadadadadd"
     # print(collections.Counter(X))
