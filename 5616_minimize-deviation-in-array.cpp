@@ -1,4 +1,5 @@
 #include "basicInclude.h"
+#include <climits>
 
 class Solution {
 public:
