@@ -1,5 +1,0 @@
-break 147_insertion-sort-list.cpp:25
-break 164_maximum-gap.cpp:54
-break 30_substring-with-concatenation-of-all-words.py:28
-
-set exec-wrapper The wrapper for running programs is \
