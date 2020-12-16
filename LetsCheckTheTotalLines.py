@@ -20,7 +20,7 @@ for file in files:
     
 end = time.time()
 print(
-'''Look Hooooow many lines of codes have you wrote
+'''Look Hooooow many lines of codes have you written :)
 ==============================================================
 Total Lines Count: \033[36m{}\033[0m
 Total files Count: \033[35m{}\033[0m
