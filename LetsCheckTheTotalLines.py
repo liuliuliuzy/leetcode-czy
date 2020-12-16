@@ -21,7 +21,7 @@ for file in files:
 end = time.time()
 print(
 '''Look Hooooow many lines of codes have you wrote
-===============================
+==============================================================
 Total Lines Count: \033[36m{}\033[0m
 Total files Count: \033[35m{}\033[0m
 in {:.3}s
@@ -33,4 +33,4 @@ for key, value in filesTypes.items():
     print(colors[startColorIndex] + "{:6}: ".format(key) + "+"*max(int((value/totalFiles)//0.01), 1)+ " {:.2%}".format(value/totalFiles) + endColor)
     startColorIndex += 1
 
-print("===============================")
+print("==============================================================")
