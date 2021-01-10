@@ -3,3 +3,4 @@ __pycache__/
 *.lzy
 peda-session*
 a.out
+*.class
