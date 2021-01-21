@@ -1,15 +1,18 @@
+package leetcodejava.solu;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Solution {
     //注意题目说了，给的是有序数组
-    public static void main(String[] args) {
-        int[] nums = new int[]{1,2,3,5,7};
-        System.out.print(summaryRangesII(nums));
+    public void main(String[] args) {
+        // int[] nums = new int[]{1,2,3,5,7};
+        // System.out.print(summaryRangesII(nums));
+        System.out.println("hw");;
     }
     // 228_summary-ranges.java
-    public static List<String> summaryRanges(int[] nums) {
+    public List<String> summaryRanges(int[] nums) {
         Arrays.sort(nums);
         List<String> res = new ArrayList<String>();
         int last = nums[0];
@@ -38,7 +41,7 @@ public class Solution {
         res.add(tmp.toString());
         return res;
     }
-    public static List<String> summaryRangesII(int[] nums) {
+    public List<String> summaryRangesII(int[] nums) {
         // Arrays.sort(nums);
         List<String> res = new ArrayList<String>();
         System.out.println("testsetset");
@@ -57,5 +60,47 @@ public class Solution {
         }
         System.out.print(res);
         return res;
+    }
+    //https://leetcode-cn.com/problems/can-place-flowers/    # no.605
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        //直接贪心算法？
+        int flowers = n;
+        if(flowers == 0){
+            return true;
+        }
+        if(flowers > (flowerbed.length+1) / 2){
+            return false;
+        }
+        for(int i=0; i<flowerbed.length; i++){
+            if(flowers == 0){
+                break;
+            }
+            if(flowerbed[i] == 1){
+                continue;
+            }
+            else{
+                // if((i-1 < 0 || flowerbed[i-1] == 0) && (i+1 > flowerbed.length || flowerbed[i+1] == 0)){
+                //     flowers--;
+                //     flowerbed[i] = 1;
+                // }
+                // if(i == 0){
+
+                // }
+                if(checkOne(flowerbed, i-1) && checkOne(flowerbed, i+1)){
+                    flowers --;
+                    flowerbed[i] = 1;
+                }
+            }
+        }
+        return flowers == 0 ? true : false;
+    }
+    public boolean checkOne(int[] flowerbed, int i) {
+        if(i < 0 || i > flowerbed.length-1){
+            return true;
+        }
+        else{
+            return flowerbed[i] == 1 ? false : true;
+        }
+        // return false;
     }
 }
