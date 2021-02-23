@@ -103,4 +103,10 @@ public class Solution {
         }
         // return false;
     }
+    //https://leetcode-cn.com/problems/sliding-window-maximum/  # no.239
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        //滑动窗口中的元素的最大值
+        int res = Integer.MIN_VALUE;
+        return res;
+    }
 }
