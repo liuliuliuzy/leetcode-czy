@@ -1,4 +1,6 @@
 from typing import List
+
+
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
         ans = []
@@ -20,9 +22,10 @@ class Solution:
                 ans.append(tmp)
                 last = nums[i]
                 tmp = str(last)
-                i+=1
+                i += 1
         ans.append(tmp)
         return ans
+
 
 if __name__ == "__main__":
     S = Solution()
