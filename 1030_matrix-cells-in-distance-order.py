@@ -51,14 +51,8 @@ class Solution:
         ret = list()
         for i in range(maxDist + 1):
             ret.extend(bucket[i])
-        
         return ret
-
-
-
-
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.allCellsDistOrder(3,4,1,2))
-
+    print(s.allCellsDistOrder(3, 4, 1, 2))
